@@ -24,7 +24,7 @@ function PostPaperForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/post-paper", {
+      const response = await fetch("https://jupaperbackend-15hi.onrender.com/post-paper", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
