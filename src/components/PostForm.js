@@ -1,17 +1,25 @@
-import React, { useState } from "react";
-import "./FormCss.css"
+ import React, { useState } from "react";
+import "./FormCss.css";
 
 function PostPaperForm() {
   const [formData, setFormData] = useState({
     title: "",
     author: "",
-    year: "",
+    year: "2023", // Default to 2023
     abstract: "",
     url: "",
-    department: "",
+    department: "Computer Science", // Default department
   });
 
   const [responseMessage, setResponseMessage] = useState("");
+
+  // List of departments
+  const departments = [
+    "IAR",
+    "VLSI",
+    "Nano",
+    "ItCourseWare"
+  ];
 
   // Handle input changes
   const handleChange = (e) => {
@@ -24,7 +32,7 @@ function PostPaperForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://jupaperbackend-15hi.onrender.com/post-paper", {
+      const response = await fetch("http://localhost:3000/post-paper", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,10 +47,10 @@ function PostPaperForm() {
         setFormData({
           title: "",
           author: "",
-          year: "",
+          year: "2023",
           abstract: "",
           url: "",
-          department: "",
+          department: "Computer Science",
         }); // Clear form
       } else {
         setResponseMessage(`Error: ${data.message}`);
@@ -78,13 +86,16 @@ function PostPaperForm() {
         </div>
         <div>
           <label>Year: </label>
-          <input
-            type="number"
+          <select
             name="year"
             value={formData.year}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
         </div>
         <div>
           <label>Abstract: </label>
@@ -107,13 +118,18 @@ function PostPaperForm() {
         </div>
         <div>
           <label>Department: </label>
-          <input
-            type="text"
+          <select
             name="department"
             value={formData.department}
             onChange={handleChange}
             required
-          />
+          >
+            {departments.map((dept) => (
+              <option key={dept} value={dept}>
+                {dept}
+              </option>
+            ))}
+          </select>
         </div>
         <button type="submit" style={{ marginTop: "10px" }}>
           Submit Paper
@@ -125,3 +141,4 @@ function PostPaperForm() {
 }
 
 export default PostPaperForm;
+
