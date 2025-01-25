@@ -14,12 +14,19 @@ function PostPaperForm() {
   const [responseMessage, setResponseMessage] = useState("");
 
   // List of departments
+ 
   const departments = [
     "IAR",
     "VLSI",
     "Nano",
-    "ItCourseWare"
+    "ItCourseWare",
+    "Control",
+    "Illumination",
+    "Enviromental Sciences",
+    "Water Resource",
+    "Other"
   ];
+ 
 
   // Handle input changes
   const handleChange = (e) => {
