@@ -8,7 +8,7 @@ function PostPaperForm() {
     year: "2023", // Default to 2023
     abstract: "",
     url: "",
-    department: "Computer Science", // Default department
+    department: "IAR", // Default department
   });
 
   const [responseMessage, setResponseMessage] = useState("");
