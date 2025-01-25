@@ -22,7 +22,7 @@ function PostPaperForm() {
     "ItCourseWare",
     "Control",
     "Illumination",
-    "Enviromental Sciences",
+    "EVS",
     "Water Resource",
     "Other"
   ];
