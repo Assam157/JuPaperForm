@@ -39,7 +39,7 @@ function PostPaperForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://jupaperbackend-15hi.onrender.com/post-paper", {
+      const response = await fetch("https://jupaperbackend.onrender.com/post-paper", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -148,4 +148,5 @@ function PostPaperForm() {
 }
 
 export default PostPaperForm;
+
 
